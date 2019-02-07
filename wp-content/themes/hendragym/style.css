@@ -1,0 +1,17 @@
+/*
+Theme Name: Hendra Gym
+Author: The Raiders
+Author URI: https://theraiders.com.au/
+Description: Theme for Hendra Gym
+Version: 1.0
+Text Domain: hendragym
+*/
+
+.hide,h2.screen-reader-text  {
+    display: none !important;
+}
+
+p:empty {
+	display: none !important;
+}
+

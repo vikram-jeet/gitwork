@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Fill in your details below and attach your resume and/or cover letter. If you’re an ideal candidate for the position we will let you know!</p>
+<div class="clear">
+    <div class="half-col">[text enquire_title class:text-box placeholder "Title"]</div>
+    <div class="half-col">
+        [text enquire_full_name class:text-box placeholder "Full Name"]</div>
+</div>
+<div class="clear">
+    <div class="half-col">[email* enquire_email class:text-box placeholder "Email Address"]</div><div class="half-col">
+    [text* enquire_contact class:text-box placeholder "Contact Number"]
+</div></div>
+<div class="clear"><div class="full-col">
+    <div class="custom-select">[select* position_interest class:perferred-consultation include_blank "option : Option1" "other : Other"]</div></div>
+</div><div class="clear"><div class="half-col">[file file-cv class:file-btn]</div><div class="half-col">[file file-cover class:file-btn]</div><div class="clear">[submit class:submit-btn "submit application"]</div>
+</div>
+</body>
+</html>

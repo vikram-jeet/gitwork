@@ -1,0 +1,55 @@
+<div class="row" ng-controller="AccountController as vm">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Get a customer account by ID</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <div class="form-group">
+                    <label for="request-adfit-number">Customer's account reference number</label>
+                    <input type="text" class="form-control" id="request-adfit-number" name="request[AdfitNo]" ng-model="vm.getByIdRequest.AccountReferenceNo" placeholder="Account Reference Number">
+                </div>
+                <button type="submit" ng-click="vm.GetCustomerAccountById('GetCustomerAccountByAccountId')" id="get-customer-account-by-id" class="btn btn-success btn-lg">Get customer account</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.succeed">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Name: {{vm.accounts.Account.Customer.CustomerDetail.FirstName}} {{vm.accounts.Account.Customer.CustomerDetail.LastName}}</h3>
+                    <h4>Reference Number: {{vm.accounts.Account.AccountReferenceNo}}</h4>
+                    <h5>Account Code: {{vm.accounts.Account.AccountCode}}</h5>
+                    <p>
+                        <strong>Outstanding balance: {{vm.accounts.Account.OutstandingBalance}}</strong> <br/>
+                        <strong>Installment: </strong>{{vm.accounts.Account.CurrentInstalment}} {{vm.accounts.Account.CurrentFrequency}} <br/>
+                        <strong>Next payment: </strong>{{vm.accounts.Account.NextBillingDate}}<br/>
+                    </p>
+                </div>
+            </div>
+        </div><!--/ng-repeat-->
+    </div><!--/ng-if-->
+    <div class="modal fade" id="server-response" tabindex="-1" role="dialog" aria-labelledby="server-response">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Server Response</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Message:</p>
+                    <pre>
+                    {{vm.serverResponse}}
+                    </pre>
+                </div>
+                {{vm.accounts}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div><!--/.modal-->
+</div><!--/GetAccountController-->

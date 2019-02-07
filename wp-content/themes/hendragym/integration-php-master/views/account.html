@@ -1,0 +1,212 @@
+<div class="row" ng-controller="AccountController as vm">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Create a new account</h2>
+                <hr>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                    <h3>Customer Details</h3>
+                    <div class="form-group">
+                        <label for="request-first-name">First Name</label>
+                        <input type="text" class="form-control" id="request-first-name" name="request[FirstName]" ng-model="vm.request.FirstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-last-name">Last Name</label>
+                        <input type="text" class="form-control" id="request-last-name" name="request[LastName]" ng-model="vm.request.LastName" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-date-of-birth">Date Of Birth</label>
+                        <input type="date" class="form-control" id="request-date-of-birth" name="request[DateOfBirth]" ng-model="vm.request.DateOfBirth" placeholder="Date Of Birth">
+                    </div>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label for="request-gender-female">
+                                <input type="radio" name="request[Gender]" id="request-gender-female" value="Female" ng-model="vm.request.Gender" checked> Female
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="request-gender-male">
+                                <input type="radio" name="request[Gender]" id="request-gender-male" value="Male" ng-model="vm.request.Gender" > Male
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-offset-1 col-lg-5">
+                    <h3>Customer Postal Details</h3>
+                    <div class="form-group">
+                        <label for="request-physical-address">Address</label>
+                        <input type="text" class="form-control" id="request-physical-address" name="request[PhysicalAddress]" ng-model="vm.request.PhysicalAddress" placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-physical-city">City</label>
+                        <input type="text" class="form-control" id="request-physical-city" name="request[PhysicalCity]" ng-model="vm.request.PhysicalCity" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-physical-postcode">Post code</label>
+                        <input type="text" class="form-control" id="request-physical-postcode" name="request[PhysicalPostcode]" ng-model="vm.request.PhysicalPostcode" placeholder="Post Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-physical-country">Country</label>
+                        <select class="form-control" id="request-physical-country" name="request[PhysicalCountry]"
+                            ng-model="vm.request.PhysicalCountry"
+                            ng-options="physicalCountry.value as physicalCountry.label for physicalCountry in vm.physicalCountries track by physicalCountry.value"
+                            ng-init="vm.request.PhysicalCountry = vm.physicalCountries[0]">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                    <h3>Payment Method Details</h3>
+                    <div class="form-group">
+                        <label for="request-account-number">Account Number</label>
+                        <input type="text" class="form-control" id="request-account-number" name="request[AccountNo]" ng-model="vm.request.AccountNo" placeholder="Account Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-account-holder">Account Holder</label>
+                        <input type="text" class="form-control" id="request-account-holder" name="request[AccountHolder]" ng-model="vm.request.AccountHolder" placeholder="Account Holder">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-account-type">Account Type</label>
+                        <select class="form-control" id="request-account-type" name="request[AccountType]" title="Account type"
+                            ng-model="vm.request.AccountType"
+                            ng-options="accountType.value as accountType.label for accountType in vm.accountTypes track by accountType.value">
+                        </select>
+                    </div>
+                    <div class="form-group" ng-if="vm.request.AccountType == 'CreditCard'">
+                        <label for="request-expiry-date">Expiry Date</label>
+                        <input type="date" class="form-control" id="request-expiry-date" name="request[ExpiryDate]" ng-model="vm.request.ExpiryDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-credit-card-type">Credit Card Type</label>
+                        <select class="form-control" id="request-credit-card-type" name="request[CreditCardType]" title="Credit card type"
+                            ng-model="vm.request.CreditCardType"
+                            ng-options="card.value as card.label for card in vm.creditcards track by card.value">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="request-account-country">Account Country</label>
+                        <select class="form-control" id="request-account-country" name="request[AccountCountry]" title="Accont Country"
+                            ng-model="vm.request.AccountCountry"
+                            ng-options="accountCountry.value as accountCountry.label for accountCountry in vm.accountCountries track by accountCountry.value"
+                            ng-init="vm.request.AccountCountry = vm.accountCountries[0]">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-offset-1 col-lg-5">
+                    <h3>Customer Contact details</h3>
+                    <div class="form-group">
+                        <label for="request-email-address">Email Address</label>
+                        <input type="email" class="form-control" id="request-email-address" name="request[EmailAddress]" ng-model="vm.request.EmailAddress" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-mobile-phone-number">Mobile phone number</label>
+                        <input type="text" class="form-control" id="request-mobile-phone-number" name="request[MobileNumber]" ng-model="vm.request.MobileNumber" placeholder="Mobile Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-mobile-std">Mobile STD Code</label>
+                        <input type="text" class="form-control" id="request-mobile-std" name="request[MobileSTD]" ng-model="vm.request.MobileSTD" placeholder="Mobile STD Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-mobile-code-country">Mobile Country Code</label>
+                        <select class="form-control" id="request-mobile-code-country" name="request[MobileCountryCode]" title="Mobile Country Code"
+                            ng-model="vm.request.MobileCountryCode"
+                            ng-options="mobileCountry.value as mobileCountry.label for mobileCountry in vm.mobileCountries track by mobileCountry.value"
+                            ng-init="vm.request.MobileCountryCode = vm.mobileCountries[0]">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Contract details</h3>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-term">Term</label>
+                        <input type="number" class="form-control" id="request-term" name="request[Term]" ng-model="vm.request.Term" placeholder="Term" min="0" max="36">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-term-type">Term Type</label>
+                        <select class="form-control" id="request-term-type" name="request[TermType]" title="Term Type"
+                            ng-model="vm.request.TermType"
+                            ng-options="termType.value as termType.label for termType in vm.termTypes track by termType.value"
+                            ng-init="vm.request.TermType = vm.termTypes[0]">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-term">Term options</label><br/>
+                        <label class="checkbox-inline" for="request-fixed-term">
+                            <input type="checkbox" id="request-fixed-term" name="request[FixedTerm]" ng-model="vm.request.FixedTerm" ng-init="vm.request.FixedTerm=false"> Fixed Term
+                        </label>
+                        <label class="checkbox-inline" for="request-fix-total-value">
+                            <input type="checkbox" id="request-fix-total-value" name="request[FixTotalValue]" ng-model="vm.request.FixTotalValue" ng-init="vm.request.FixTotalValue=false"> Fix total value
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                        <label for="request-total-value">Fix Term Total Value</label>
+                        <input type="text" class="form-control" id="request-total-value" name="request[TotalValue]" ng-model="vm.request.TotalValue" pattern="[0-9]+([.][0-9]+)?" placeholder="Total value eg: 1000.00" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-term">Account Code</label>
+                        <input type="text" class="form-control" id="request-account-code" name="request[AccountCode]" ng-model="vm.request.AccountCode" placeholder="Account Code">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Schedule Details</h3>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-recurring-schedule-start-date">Regular Payment Start Date</label>
+                        <input type="date" class="form-control" id="request-recurring-schedule-start-date" name="request[RecurringScheduleStartDate]" ng-model="vm.request.RecurringScheduleStartDate" placeholder="Regular Payment Start Date">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-recurring-schedule-instalment">Regular Payment Amount</label>
+                        <input type="text" class="form-control" id="request-recurring-schedule-instalment" name="request[RecurringScheduleInstalment]" ng-model="vm.request.RecurringScheduleInstalment" pattern="[0-9]+([.][0-9]+)?" placeholder="Payment Amount eg: 58.15" >
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="request-regular-payment-frequency">Regular Payment Frequency</label>
+                        <select class="form-control" id="request-regular-payment-frequency" name="request[RecurringScheduleFrequency]" title="Regular Payment Frequency"
+                            ng-model="vm.request.RecurringScheduleFrequency"
+                            ng-options="scheduleFrequency.value as scheduleFrequency.label for scheduleFrequency in vm.scheduleFrequencies track by scheduleFrequency.value"
+                            ng-init="vm.request.RecurringScheduleFrequency = vm.scheduleFrequencies[0]">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" ng-click="vm.RequestPostCustomerAccount()" id="request-post-client-account" class="btn btn-success btn-lg">Create an account</button>
+        <div class="modal fade" id="server-response" tabindex="-1" role="dialog" aria-labelledby="server-response">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Server Response</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Message:</p>
+                        <pre>
+                 {{vm.serverResponse}}
+               </pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.modal-->
+     </div><!--/.col-sm-12 AccountController body-->
+ </div><!--/AccountController-->

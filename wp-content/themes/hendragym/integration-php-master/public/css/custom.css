@@ -1,0 +1,47 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  padding: 20px 0 0 30px;
+  background-color: #f5f5f5;
+}
+
+#tabs-main-page{
+  padding-bottom: 20px;
+}
+
+.header {
+  margin-bottom: 45px;
+}
+body > .container {
+  padding: 15px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+input[type=date].form-control,
+input[type=time].form-control,
+input[type=datetime-local].form-control,
+input[type=month].form-control {
+  line-height: 1.25rem;
+}
+
+code {
+  font-size: 80%;
+}
